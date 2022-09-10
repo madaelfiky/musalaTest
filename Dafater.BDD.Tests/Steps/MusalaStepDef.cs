@@ -1,0 +1,253 @@
+﻿using Musala.BDD.Tests.Hooks;
+using Musala.BDD.Tests.Selenium.Pages;
+using FluentAssertions;
+using TechTalk.SpecFlow;
+
+namespace Musala.BDD.Tests.Steps
+{
+    [Binding]
+    public sealed class MusalaStepDef : TestState
+    {
+        public MusalaStepDef(TestThreadContext testThreadContext, ScenarioContext scenarioContext) : base(testThreadContext, scenarioContext)
+        {
+        }
+
+        [Given(@"the user Scroll to Contact us")]
+        public void GivenUserScrollToContactUs()
+        {
+           new MusalaPage(driver).GivenTheUserScrollToContactUs();
+        }
+
+        [Given(@"user click on contact us")]
+        public void GivenUserClickOnContactUs()
+        {
+
+            new MusalaPage(driver).GivenTheUserClickonContactUs();
+        }
+
+
+        [Given(@"user click on Sales Invoice button")]
+        public void GivenUserClickOnSalesInvoiceButton()
+        {
+            new MusalaPage(driver).ClickOnSalesInvoiceButton();
+        }
+
+        [Given(@"user click on Chart of Accounts button")]
+        public void GivenUserClickOnChartOfAccountsLink()
+        {
+            new MusalaPage(driver).ClickOnChartOfAccountsButton();
+        }
+        [Given(@"user click on Chart of Cost Centers button")]
+        public void GivenUserClickOnChartOfCostCentersButton()
+        {
+            new MusalaPage(driver).ClickOnChartOfCostCentersButton();
+        }
+
+        [Given(@"user opens Customers")]
+        public void GivenUserClickOnCustomerLink()
+        {
+            new MusalaPage(driver).ClickOnCustomerLink();
+        }
+
+
+
+        [Given(@"user click on New Company button")]
+        public void GivenUserClickOnNewCompanyButton()
+        {
+            new MusalaPage(driver).ClickOnNewCompanyButton();
+        }
+
+
+        [Given(@"user click on Return Note button")]
+        public void GivenUserClickOnReturnNoteButton()
+        {
+            new MusalaPage(driver).ClickOnReturnNoteButton();
+        }
+
+        [Given(@"user clicks on tools button")]
+        public void GivenUserClickOntoolsButton()
+        {
+            new MusalaPage(driver).ClickOnToolsButton();
+        }
+
+        [Given(@"user click on Payment Reconciliation button")]
+        public void GivenUserClickOnPaymentReconciliationButton()
+        {
+            new MusalaPage(driver).ClickOnPaymentReconciliationButton();
+        }
+        [Given(@"user click on Settlement of Sales Invoices button")]
+        public void GivenUserClickOnSettlementOfSalesInvoicesButton()
+        {
+            new MusalaPage(driver).ClickOnSettlementOfSalesInvoicesButton();
+        }
+        [Given(@"user search for account")]
+        public void GivenUsersearchforaccount()
+        {
+            new MusalaPage(driver).AccountSearch();
+        }
+        [When(@"user click Pull Payment Entries")]
+        public void WhenUserClickPullPaymentEntries()
+        {
+
+            new MusalaPage(driver).PullPaymentEnteries();
+        }
+
+        [When(@"user click Allocate")]
+        public void WhenUserClickAllocate()
+        {
+            new MusalaPage(driver).Allocate();
+        }
+
+        [Then(@"Success message should appears that says amount allocated")]
+        public void ThenSuccessMessageShouldAppearsThatSaysAmountAllocated()
+        {
+            new MusalaPage(driver).AllocationSuccessMessage().Should().Contain("Successfully allocated");
+        }
+
+        [Given(@"user click on Payment Voucher button")]
+        public void GivenUserClickOnPaymentVoucherButton()
+        {
+            new MusalaPage(driver).ClickOnPaymentVoucherButton();
+        }
+
+        [Given(@"user click new payment voucher button")]
+        public void GivenUserClickNewPaymentVoucherButton()
+        {
+            new MusalaPage(driver).ClickOnNewPaymentVoucherButton();
+        }
+
+
+        [Given(@"user click on Receipt Voucher button")]
+        public void GivenUserClickOnReceiptVoucherButton()
+        {
+            new MusalaPage(driver).ClickOnReceiptVoucherButton();
+        }
+
+        [Given(@"user click on Purchase Invoice button")]
+        public void GivenUserClickOnPurchaseInvoiceButton()
+        {
+            new MusalaPage(driver).ClickOnPurchaseInvoiceButton();
+        }
+
+        [When(@"user click on From Sales Invoice button")]
+        public void GivenUserClickOnFromSalesInvoiceButton()
+        {
+            new MusalaPage(driver).ClickOnFromSalesInvoiceButton();
+        }
+
+        [When(@"user click on From Delivery Note button")]
+        public void WhenUserClickOnFromDeliveryNoteButton()
+        {
+            new MusalaPage(driver).ClickOnFromDeliveryNoteButton();
+        }
+
+
+        [When(@"user click on Get button")]
+        public void WhenUserClickOnGetButton()
+        {
+            new MusalaPage(driver).ClickOnGetButton();
+        }
+
+        [Then(@"Sales invoice should be submitted and the auto generated name displayed")]
+        public void ThenSalesInvoiceShouldBeSubmittedAndTheAutoGeneratedNameDisplayed()
+        {
+            new MusalaPage(driver).GetSalesInvoicePageTitle().Should().Contain("INV");
+        }
+
+        [Then(@"Purchase invoice should be submitted and the auto generated name displayed")]
+        public void ThenPurchaseInvoiceShouldBeSubmittedAndTheAutoGeneratedNameDisplayed()
+        {
+            new MusalaPage(driver).GetPurchaseInvoicePageTitle().Should().Contain("BILL");
+        }
+
+        [Then(@"company should be created and company name displayed as a page title")]
+        public void ThenCompanyShouldBeCreatedAndCompanyNameDisplayedAsAPageTitle()
+        {
+            new MusalaPage(driver).GetCompanyPageTitle().Should().Be(GetTransferedData("Company").ToString());
+        }
+
+        [Then(@"Journal Voucher should be submitted and the auto generated name displayed")]
+        public void ThenJournalVoucherShouldBeSubmittedAndTheAutoGeneratedNameDisplayed()
+        {
+            new MusalaPage(driver).GetJournalVoucherTitle().Should().Contain("JV0");
+        }
+
+        [Then(@"Payment Voucher should be submitted")]
+        public void ThenPaymentVoucherShouldBeSubmitted()
+        {
+            new MusalaPage(driver).IsPaymentVoucherSubmitted().Should().BeTrue();
+        }
+
+        [Then(@"the payment voucher auto generated name displayed")]
+        public void ThenTheAutoGeneratedNameDisplayed()
+        {
+            new MusalaPage(driver).GetPaymentVoucherTitle().Should().Contain(GetTransferedData("Saved").ToString().Substring(0,3));
+        }
+
+        [Then(@"Receipt Voucher should be submitted")]
+        public void ThenReceiptVoucherShouldBeSubmitted()
+        {
+            new MusalaPage(driver).IsReceiptVoucherSubmitted().Should().BeTrue();
+        }
+
+        [Then(@"the receipt voucher auto generated name displayed")]
+        public void ThenTheReceiptVoucherAutoGeneratedNameDisplayed()
+        {
+            new MusalaPage(driver).GetReceiptVoucherPageTitle().Should().Contain(GetTransferedData("Document Numbering Series").ToString().Substring(0, 3));
+        }        
+
+        [Then(@"return note should be submitted")]
+        public void ThenReturnNoteShouldBeSubmitted()
+        {
+            new MusalaPage(driver).IsReturnNoteSubmitted().Should().BeTrue();
+        }
+
+        [Then(@"the return note auto generated name displayed")]
+        public void ThenTheReturnNoteAutoGeneratedNameDisplayed()
+        {
+            new MusalaPage(driver).GetReturnNotePageTitle().Should().Contain("RN0");
+        }
+
+        [Given(@"user click on add new Journal Voucher button")]
+        public void GivenUserClickOnAddNewJournalVoucherButton()
+        {
+            new MusalaPage(driver).ClickAddNewJournalVoucherButton();
+        }
+
+        [When(@"user clicks on Add new Company Address button")]
+        public void WhenUserClicksOnAddNewCompanyAddressButton()
+        {
+            new MusalaPage(driver).ClickAddNewCompanyAddressButton();
+        }
+
+
+        [When(@"user clicks on Add Address button")]
+        public void WhenUserClicksOnAddAddressButton()
+        {
+            new MusalaPage(driver).ClickAddAddressButton();
+        }
+
+        [Given(@"user expands Initiate Accounts")]
+        public void WhenUserExpandsInitiateAccounts()
+        {
+            new MusalaPage(driver).ClickInitiateAccounts();
+        }
+/*        [Given(@"user expands tools")]
+        public void WhenUserExpandstools()
+        {
+            new AccountsPage(driver).ClickInitiateAccounts();
+        }*/
+        [Given(@"user click on Budget Distribution")]
+        public void GivenUserClickOnBudgetDistribution()
+        {
+            new MusalaPage(driver).ClickBudgetDistribution();
+        }
+
+        [Given(@"user click on Mode of Payment")]
+        public void GivenUserClickOnModeofPayment()
+        {
+            new MusalaPage(driver).ClickModeofPayment();
+        }
+
+    }
+}
