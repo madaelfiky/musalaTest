@@ -277,12 +277,16 @@ namespace Driver
         {
             return FindElements(by,_numberTries);
         }
-        
+
         public void GoToUrl(string url)
         {
             _driver.Navigate().GoToUrl(url);
         }
-        
+        public string GetUrl()
+        {
+            return _driver.Url;
+        }
+
         public void ClickOn(By by)
         {
             ClickOn(FindElement(by), _numberTries);
@@ -304,6 +308,26 @@ namespace Driver
             executor.ExecuteScript("arguments[0].click();", element);
         }
 
+        public void HandleSecondTab()
+        {
+            _driver.SwitchTo().Window(_driver.WindowHandles[1]);   
+        }
+
+        public void CheckImage(IWebElement element)
+        {
+            IJavaScriptExecutor executor = (IJavaScriptExecutor)_driver;
+            executor.ExecuteScript("return arguments[0].complete " + " && typeof arguments[0].naturalWidth != \"undefined\" " + "&& arguments[0].naturalWidth > 0", element);
+
+            //Boolean p = (Boolean)((JavascriptExecutor)driver).executeScript("return arguments[0].complete " + "&& typeof arguments[0].naturalWidth != \"undefined\" " + "&& arguments[0].naturalWidth > 0", i);
+
+        }
+        public void CheckImage(By by)
+        {
+            CheckImage(FindElement(by));
+        }
+
+
+
         public void Blur(By by)
         {
             Blur(FindElement(by));            
@@ -317,6 +341,11 @@ namespace Driver
 
         public void SendKeys(By by, string text)
         {
+            SendKeys(by, text, _numberTries);
+        }
+        public void SendKeysWithClick(By by, string text)
+        {
+            ClickOn(by);
             SendKeys(by, text, _numberTries);
         }
         public void SendKeysBackSpace(By by)
@@ -340,6 +369,7 @@ namespace Driver
             return FindElements(by)[index].Text;
         }
         
+
         public string GetText(By by)
         {
             return FindElement(by).Text;
