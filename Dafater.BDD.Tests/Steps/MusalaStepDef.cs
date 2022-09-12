@@ -59,6 +59,53 @@ namespace Musala.BDD.Tests.Steps
             new MusalaCompanyPage(driver).ThenVerifyThatTheCorrectURLAndMusalaSoftProfilePictureAppears();
         }
 
+        [Given(@"the user Click ‘Careers’ tap from the top")]
+        public void GivenTheUserClickCareersTapFromTheTop()
+        {
+            new MusalaCareersPage(driver).GivenTheUserClickCareersTapFromTheTop();
+
+        }
+
+        [Given(@"Click ‘Check our open positions’ button and verifies URL")]
+        public void GivenClickCheckOurOpenPositionsButtonAndVerifiesURL()
+        {
+            new MusalaCareersPage(driver).GivenClickCheckOurOpenPositionsButtonAndVerifiesURL();
+        }
+
+
+        [Given(@"From the dropdown ‘Select location’ select ‘Anywhere’")]
+        public void GivenFromTheDropdownSelectLocationSelectAnywhere()
+        {
+            new MusalaCareersPage(driver).GivenFromTheDropdownSelectLocationSelectAnywhere();
+        }
+
+
+        [Given(@"Choose open position by name and apply")]
+        public void GivenChooseOpenPositionByNameAndApply()
+        {
+            new MusalaCareersPage(driver).GivenChooseOpenPositionByNameAndApply();
+        }
+
+        [Given(@"Enter wrong details")]
+        public void GivenEnterWrongDetails()
+        {
+            new MusalaCareersPage(driver).GivenEnterWrongDetails();
+        }
+
+        [Given(@"Upload a CV document, and click ‘Send’ button")]
+        public void GivenUploadACVDocumentAndClickSendButton()
+        {
+            new MusalaCareersPage(driver).GivenUploadACVDocumentAndClickSendButton();
+        }
+
+        [Then(@"Print jobs")]
+        public void ThenPrintJobs()
+        {
+            new MusalaCareersPage(driver).ThenPrintJobs();
+        }
+
+
+
 
     }
 }

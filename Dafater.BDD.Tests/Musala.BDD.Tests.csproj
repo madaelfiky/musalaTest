@@ -62,6 +62,9 @@
     <None Update="Default.srprofile">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Resources\Data\Ahmed El-Fiky.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Resources\Data\Users.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

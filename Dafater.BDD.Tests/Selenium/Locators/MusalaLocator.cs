@@ -26,7 +26,14 @@ namespace Musala.BDD.Tests.Selenium.Locators
         public static By musalaFaceBook = By.XPath("//* [@class='musala musala-icon-facebook']");
         public static By musalaProfilePicture = By.XPath("//* [@aria-label='Musala Soft profile photo']");
 
-
+        //Careers
+        public static By musalaCareers = By.XPath("//ul[@class='nav']/li/a [text()='Careers']");
+        public static By musalaaCheckOurOpenPositions  = By.XPath("//* [@data-alt='Check our open positions']");
+        public static By musalaLocationDDL = By.XPath("//* [@id='get_location']/option");
+        public static By musalaAutomationQAEngineer = By.XPath("//* [text()='Automation QA Engineer']");
+        public static By musalaApplyButton = By.XPath("//* [@value='Apply']");
+        public static By musalaUploadButton = By.XPath("//* [@name='upload-cv']");
+        public static By musalaJobs = By.XPath("//article [contains (@class,('card-jobsHot'))]//h2");
 
     }
 }
