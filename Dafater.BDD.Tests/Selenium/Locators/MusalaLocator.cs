@@ -24,7 +24,7 @@ namespace Musala.BDD.Tests.Selenium.Locators
         public static By musalaCompany = By.XPath("//ul[@class='nav']/li/a [text()='Company']");
         public static By musalaLeaderShipSection = By.XPath("//* [@class='company-members']");
         public static By musalaFaceBook = By.XPath("//* [@class='musala musala-icon-facebook']");
-        public static By musalaProfilePicture = By.XPath("//* [@aria-label='Musala Soft profile photo']");
+        public static By musalaProfilePicture = By.XPath("//* [@aria-label='Page profile photo']");
 
         //Careers
         public static By musalaCareers = By.XPath("//ul[@class='nav']/li/a [text()='Careers']");
