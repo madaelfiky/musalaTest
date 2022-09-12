@@ -316,9 +316,7 @@ namespace Driver
         public void CheckImage(IWebElement element)
         {
             IJavaScriptExecutor executor = (IJavaScriptExecutor)_driver;
-            executor.ExecuteScript("return arguments[0].complete " + " && typeof arguments[0].naturalWidth != \"undefined\" " + "&& arguments[0].naturalWidth > 0", element);
-
-            //Boolean p = (Boolean)((JavascriptExecutor)driver).executeScript("return arguments[0].complete " + "&& typeof arguments[0].naturalWidth != \"undefined\" " + "&& arguments[0].naturalWidth > 0", i);
+            executor.ExecuteScript("return arguments[0].complete " + " && typeof arguments[0].naturalWidth != \"undefined\" " + "&& arguments[0].naturalWidth > 0", element);           
 
         }
         public void CheckImage(By by)
