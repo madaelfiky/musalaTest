@@ -6,6 +6,15 @@ namespace Musala.BDD.Tests.Selenium.Locators
 {
     public class MusalaLocator
     {
+        //Kashier
+        public static By kashierFullName = By.XPath("//* [@placeholder='Enter full name']");
+        public static By kashierStoreName = By.XPath("//* [@placeholder='Enter store name']");
+        public static By kashierPhoneNumber = By.XPath("//* [@placeholder='Enter phone number']");
+        public static By kashierEmail = By.XPath("//* [@placeholder='Enter email address']");
+        public static By kashierPassword = By.XPath("//* [@placeholder='Create password']");
+        public static By kashierPassword2 = By.XPath("//* [@placeholder='Re-type password']");
+        public static By kashierSignup = By.XPath("//* [@id='register-submit-btn']");
+        public static By kashierSignupNextpage = By.XPath("//* [@id='rc-imageselect']");
 
         //homepage
 

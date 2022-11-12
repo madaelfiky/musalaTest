@@ -6,6 +6,7 @@ using Driver;
 using System;
 using TechTalk.SpecFlow;
 using NUnit.Framework;
+using Faker;
 
 namespace Musala.BDD.Tests.Selenium.Pages
 {   
@@ -17,12 +18,34 @@ namespace Musala.BDD.Tests.Selenium.Pages
 
 
 
-        public void GivenTheUserScrollToContactUs()
+        public void GivenTheUserEnterallData()
         {
 
-            driver.WaitUntilElementIsVisible(MusalaLocator.musalaLogo, 3);
-            driver.ScrollToElement(MusalaLocator.musalaContactUs);
+            driver.WaitUntilElementIsVisible(MusalaLocator.kashierFullName, 3);
+            driver.SendKeysWithClick(MusalaLocator.kashierFullName, Lorem.GetFirstWord());
+            driver.SendKeysWithClick(MusalaLocator.kashierStoreName, Lorem.Sentence());
+            driver.SendKeysWithClick(MusalaLocator.kashierPhoneNumber, "01234567890");
+            driver.SendKeysWithClick(MusalaLocator.kashierEmail, "test@test.com");
+            driver.SendKeysWithClick(MusalaLocator.kashierPassword, "Test_12345");
+            driver.SendKeysWithClick(MusalaLocator.kashierPassword2, "Test_12345");
+
         }
+
+
+        public void WhenUserClicksSingupButton()
+        {
+            driver.WaitUntilElementIsVisible(MusalaLocator.kashierSignup, 3);
+            driver.ClickOn(MusalaLocator.kashierSignup);
+
+        }
+
+        public void AssertUserIsSignedUP()
+        {
+            driver.WaitUntilElementIsVisible(MusalaLocator.kashierSignupNextpage, 3);
+
+        }
+
+
 
         public void GivenTheUserClickonContactUs()
         {
