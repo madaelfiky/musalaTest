@@ -393,6 +393,7 @@ namespace Driver
             var options = _driver.FindElements(by);
             foreach (IWebElement webElement in options)
             {
+
                 if (webElement.Text.Equals(option))
                 {
                     ClickOn(webElement);
